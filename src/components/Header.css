@@ -6,10 +6,9 @@
 .header-background {
   width: 100%;
   height: 100%;
-  background-image: url(../img/header/wave3.svg), url(../img/header/wave2.svg),
-    url(../img/header/wave1.svg);
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-position: top right;
+  background: url(../img/header/wave3.svg) right top no-repeat,
+    url(../img/header/wave2.svg) right top no-repeat,
+    url(../img/header/wave1.svg) right top no-repeat;
   position: absolute;
 }
 .logo {
