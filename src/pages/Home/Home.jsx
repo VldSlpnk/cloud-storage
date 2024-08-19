@@ -1,11 +1,7 @@
-import HomePage from '../../components/HomePage/HomePage'
+import HeroSection from '../../components/HomePage/HeroSection'
 
 const Home = () => {
-  return (
-    <div>
-      <HomePage />
-    </div>
-  )
+  return <HeroSection />
 }
 
 export default Home

@@ -10,7 +10,9 @@
 *::after {
   box-sizing: border-box;
 }
-
+body {
+  position: relative;
+}
 :focus,
 :active {
   /*outline: none;*/
