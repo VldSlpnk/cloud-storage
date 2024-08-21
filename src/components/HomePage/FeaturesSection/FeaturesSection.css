@@ -1,8 +1,9 @@
 .features-banner {
   width: 100%;
-  height: 1056px;
+  height: 1080px;
   background: url(/src/assets/img/features/features-bg.svg) left top no-repeat;
   padding-top: 150px;
+  margin-bottom: 150px;
 }
 .features-card-sec {
   position: relative;
