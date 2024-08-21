@@ -19,15 +19,15 @@ const PriceSection = () => {
           </span>
         </div>
         <div className="card-container">
-          {priceCards.map((card) => (
+          {priceCards.map(({ id, price, duration, features }) => (
             <PriceCard
-              key={card.id}
-              id={card.id}
-              price={card.price}
-              duration={card.duration}
-              features={card.features}
-              onClick={() => setSelectedCard(card.id)}
-              isSelected={selectedCard === card.id}
+              key={id}
+              id={id}
+              price={price}
+              duration={duration}
+              features={features}
+              onClick={() => setSelectedCard(id)}
+              isSelected={selectedCard === id}
             />
           ))}
         </div>
