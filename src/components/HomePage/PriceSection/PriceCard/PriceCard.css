@@ -20,7 +20,6 @@
   background: url(/src/assets/img/home/price/cardBg3.svg) left top no-repeat;
 }
 .card-popular {
-  font-family: Comfortaa;
   font-size: 18px;
   font-weight: 400;
   line-height: 18px;
@@ -28,21 +27,17 @@
 }
 .card-duration {
   padding: 20px;
-  font-family: Comfortaa;
   font-size: 48px;
-  font-weight: 700;
   line-height: 53.52px;
   color: #3b668d;
 }
 .card-price {
-  font-family: Comfortaa;
   font-size: 64px;
   font-weight: 400;
   line-height: 71.36px;
   color: #8572ff;
 }
 .card-list {
-  font-family: Comfortaa;
   font-size: 24px;
   font-weight: 400;
   line-height: 24px;
@@ -87,15 +82,12 @@
   margin: 80px auto 45px;
 }
 .card-sign-btn span {
-  font-family: Comfortaa;
   font-size: 24px;
-  font-weight: 700;
   line-height: 26.76px;
   text-align: center;
   color: #ffffff;
 }
 .card-money-back {
-  font-family: Comfortaa;
   font-size: 18px;
   font-weight: 400;
   line-height: 18px;

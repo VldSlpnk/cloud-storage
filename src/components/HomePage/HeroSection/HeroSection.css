@@ -55,21 +55,19 @@
   max-width: 490px;
 }
 .home-hero-section button span {
-  font-family: Comfortaa;
   font-size: 24px;
-  font-weight: 700;
   line-height: 26.76px;
   text-align: center;
   color: #ffffff;
 }
 .home-btn {
+  position: relative;
   width: 300px;
   height: 70px;
   border-radius: 85px;
   background: linear-gradient(90deg, #5ac4ff 0%, #b250ff 100%);
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   margin-top: 25px;
-  position: relative;
   overflow: hidden;
 }
 .home-btn-text::after,
