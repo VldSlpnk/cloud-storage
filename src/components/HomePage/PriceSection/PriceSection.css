@@ -1,6 +1,7 @@
 .price-section {
   width: 100%;
   background: url(/src/assets/img/home/price/mainBg.svg) left center no-repeat;
+  margin-bottom: 350px;
 }
 .price-text {
   margin: 0 auto;
