@@ -105,6 +105,7 @@ input[type='submit'] {
 }
 
 input:focus,
+textarea:focus,
 input:active,
 button:focus,
 button:active {

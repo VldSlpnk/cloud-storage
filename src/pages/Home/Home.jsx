@@ -11,7 +11,6 @@ const Home = () => {
       <FeaturesSection />
       <PriceSection />
       <StatSection />
-      <Footer />
     </>
   )
 }

@@ -30,7 +30,6 @@ const PricePage = () => {
         </div>
       </section>
       <StatSection />
-      <Footer />
     </>
   )
 }

@@ -3,16 +3,20 @@ import Header from './components/Header/Header'
 import Home from './pages/Home/Home'
 import Contact from './pages/Сontact/Contact'
 import Price from './pages/Price/Price'
+import Footer from './components/Footer/Footer'
+import ScrollToTop from './hooks/ScrollToTop'
 
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/pricing" element={<Price />} />
       </Routes>
+      <Footer />
     </Router>
   )
 }
