@@ -14,7 +14,7 @@
 .contact-main-banner .title-container {
   margin: 0 auto 80px;
 }
-form input {
+.contact-form-container form input {
   font-family: Comfortaa;
   font-size: 24px;
   font-weight: 700;
@@ -23,7 +23,7 @@ form input {
   color: #5c5c5c;
   padding-left: 50px;
 }
-form textarea {
+.contact-form-container form textarea {
   font-family: Comfortaa;
   font-size: 24px;
   font-weight: 700;

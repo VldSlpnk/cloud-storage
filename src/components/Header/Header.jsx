@@ -32,8 +32,12 @@ const Header = () => {
             </ul>
           </nav>
           <div className="header-auto">
-            <button className="header-login">login</button>
-            <button className="header-reg">sign up</button>
+            <Link to="/login">
+              <button className="header-login">login</button>
+            </Link>
+            <Link to="/registration">
+              <button className="header-reg">sign up</button>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,7 +1,6 @@
 import './ContactPage.css'
 import Title from '../Title/Title'
 import StatSection from '../StatSection/StatSection'
-import Footer from '../Footer/Footer'
 
 const ContactPage = () => {
   return (

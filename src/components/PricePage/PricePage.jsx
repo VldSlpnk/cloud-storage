@@ -4,7 +4,6 @@ import PriceCard from '../HomePage/PriceSection/PriceCard/PriceCard'
 import Title from '../Title/Title'
 import './PricePage.css'
 import StatSection from '../StatSection/StatSection'
-import Footer from '../Footer/Footer'
 
 const PricePage = () => {
   const [selectedCard, setSelectedCard] = useState(2)
