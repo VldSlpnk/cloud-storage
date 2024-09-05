@@ -34,13 +34,7 @@ const RegistrationPage = () => {
       })
   }
   const isFormValid = () => {
-    return (
-      email !== '' &&
-      password !== '' &&
-      rePassword !== '' &&
-      isChecked &&
-      password === rePassword
-    )
+    return email !== '' && password !== '' && rePassword !== '' && isChecked
   }
   return (
     <>
