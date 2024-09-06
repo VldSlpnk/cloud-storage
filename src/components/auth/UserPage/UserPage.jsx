@@ -24,7 +24,7 @@ const UserPage = () => {
   return (
     <section className="user-page-main-banner">
       <div className="container">
-        <Title textTitle={'Account'} textSubTitle={'Online storage'} />
+        <Title textTitle={'profile'} textSubTitle={'Online storage'} />
         {authUser ? (
           <div>
             <p>{`Signed in as ${authUser.email}`}</p>
