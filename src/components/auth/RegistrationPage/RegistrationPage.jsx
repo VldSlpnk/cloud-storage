@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import Title from '../Title/Title'
+import Title from '../../Title/Title'
 import './RegistrationPage.css'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../../firebase'
-import StatSection from '../StatSection/StatSection'
+import { auth } from '../../../firebase'
+import StatSection from '../../StatSection/StatSection'
 import { useNavigate } from 'react-router-dom'
 
 const RegistrationPage = () => {

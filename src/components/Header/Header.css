@@ -30,7 +30,15 @@ header {
   color: #ffffff;
   margin: auto;
 }
-.header-auto button {
+.header-login {
+  font-family: Poppins;
+  font-size: 13.42px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+}
+.header-reg {
   font-family: Poppins;
   font-size: 13.42px;
   font-weight: 500;
@@ -49,4 +57,22 @@ header {
   border-radius: 82px;
   color: #bb6df3;
   background-color: #ffffff;
+}
+.header-user-email a {
+  font-family: Comfortaa;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 22.3px;
+  color: #ffffff;
+}
+.header-user-info {
+  display: flex;
+  flex-direction: column;
+}
+.header-logout {
+  font-family: Comfortaa;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: left;
+  color: #2e2f38;
 }

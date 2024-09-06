@@ -7,6 +7,9 @@ import Footer from './components/Footer/Footer'
 import ScrollToTop from './hooks/ScrollToTop'
 import Registration from './pages/Registration/Registration'
 import Login from './pages/Login/Login'
+import Account from './pages/Account/Account'
+import ProtectedRoutes from './utils/ProtectedRoutes'
+import PublicRoutes from './utils/PublicRoutes'
 
 const App = () => {
   return (
@@ -17,8 +20,13 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/pricing" element={<Price />} />
-        <Route path="/registration" element={<Registration />} />
-        <Route path="/login" element={<Login />} />
+        <Route element={<PublicRoutes />}>
+          <Route path="/registration" element={<Registration />} />
+          <Route path="/login" element={<Login />} />
+        </Route>
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/account" element={<Account />} />
+        </Route>
       </Routes>
       <Footer />
     </Router>

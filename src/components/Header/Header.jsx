@@ -1,8 +1,33 @@
 import { Link } from 'react-router-dom'
 
 import './Header.css'
+import { useEffect, useState } from 'react'
+import { onAuthStateChanged, signOut } from 'firebase/auth'
+import { auth } from '../../firebase'
 
 const Header = () => {
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser)
+    })
+
+    return () => unsubscribe()
+  }, [])
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        setUser(null)
+      })
+      .catch((error) => {
+        console.error('Sign out error', error)
+      })
+  }
+  const getUserName = (email) => {
+    return email.split('@')[0]
+  }
   return (
     <header>
       <div className="container">
@@ -32,12 +57,25 @@ const Header = () => {
             </ul>
           </nav>
           <div className="header-auto">
-            <Link to="/login">
-              <button className="header-login">login</button>
-            </Link>
-            <Link to="/registration">
-              <button className="header-reg">sign up</button>
-            </Link>
+            {user ? (
+              <div className="header-user-info">
+                <span className="header-user-email">
+                  <Link to="/account">{getUserName(user.email)}</Link>
+                </span>
+                <button className="header-logout" onClick={handleSignOut}>
+                  Sign Out
+                </button>
+              </div>
+            ) : (
+              <div>
+                <Link to="/login">
+                  <button className="header-login">Login</button>
+                </Link>
+                <Link to="/registration">
+                  <button className="header-reg">Sign Up</button>
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>
