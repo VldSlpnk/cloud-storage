@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './HeroSection.css'
 
 const HeroSection = () => {
@@ -29,9 +30,11 @@ const HeroSection = () => {
             you&apos;re using FireFox or Chrome, you can simply drag & drop your
             files to begin uploading
           </span>
-          <button className="home-btn">
-            <span className="home-btn-text">Try SkyBox Now</span>
-          </button>
+          <Link to="/registration">
+            <button className="home-btn">
+              <span className="home-btn-text">Try SkyBox Now</span>
+            </button>
+          </Link>
         </div>
       </div>
     </section>

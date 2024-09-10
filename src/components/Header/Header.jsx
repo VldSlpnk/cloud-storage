@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
 
-import './Header.css'
 import { useEffect, useState } from 'react'
 import { onAuthStateChanged, signOut } from 'firebase/auth'
 import { auth } from '../../firebase'
+
+import './Header.css'
 
 const Header = () => {
   const [user, setUser] = useState(null)

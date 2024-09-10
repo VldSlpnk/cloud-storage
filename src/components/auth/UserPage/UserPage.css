@@ -5,3 +5,101 @@
     no-repeat;
   padding-top: 330px;
 }
+.account-type {
+  display: flex;
+  justify-content: space-between;
+}
+
+.account-status {
+  display: flex;
+  align-items: center;
+  width: 313px;
+  height: 164px;
+  padding: 25px 10px 21px 40px;
+  border-radius: 20px;
+  border: 2px solid #f0f0f0;
+}
+.account-status_text {
+  display: flex;
+  flex-direction: column;
+}
+.account-status_title {
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: left;
+  color: #3b668d;
+}
+.account-status_subtitle {
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+  color: #f36dd4;
+}
+.verify-email-form {
+  align-items: center;
+  gap: 30px;
+}
+.verify-email-form_input {
+  width: 730px;
+  height: 100px;
+  background-color: #f3f3f3;
+  border-radius: 50px;
+  font-family: Comfortaa;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 26.76px;
+  text-align: left;
+  color: #5c5c5c;
+  padding-left: 50px;
+}
+.verify-email-form_btn {
+  max-width: 250px;
+  height: 79px;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #43a1d6 0%, #907eff 100%);
+  font-family: Comfortaa;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 26.76px;
+  text-align: center;
+  color: white;
+}
+.verify-email-sec {
+  font-family: Comfortaa;
+  font-size: 24px;
+  font-weight: 700;
+  color: #3b3f8d;
+}
+.verify-email-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 150px;
+}
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+.verify-email-form_input {
+  padding-right: 120px; /* оставляет место для кнопки */
+  box-sizing: border-box;
+}
+
+.verify-email-form_btn {
+  position: absolute;
+  left: 480px;
+  top: 0;
+  height: 100%;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.verify-email-form_btn:hover {
+  background-color: #0056b3;
+}
