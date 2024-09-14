@@ -35,6 +35,7 @@ const LoginPage = () => {
       <section className="login-page-banner">
         <div className="container">
           <Title textTitle={'Login'} textSubTitle={'Online storage'} />
+
           <div className="login-form-container">
             <form onSubmit={logIn} className="login-form">
               <div className="login-form-container-input-solo">
