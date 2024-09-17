@@ -103,3 +103,27 @@
 .verify-email-form_btn:hover {
   background-color: #0056b3;
 }
+.verified-message {
+  font-family: Roboto;
+  font-size: 50px;
+  font-weight: 900;
+  text-align: center;
+  color: #6db2f3;
+  margin-top: 100px;
+}
+.verify-message {
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+  color: #6db2f3;
+  margin-top: 15px;
+}
+.files-link {
+  font-family: Roboto;
+  font-size: 50px;
+  font-weight: 400;
+  text-align: center;
+  color: #f37d6d;
+  margin-top: 15px;
+}

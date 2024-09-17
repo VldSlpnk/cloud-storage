@@ -10,6 +10,8 @@ import Login from './pages/Login/Login'
 import Account from './pages/Account/Account'
 import ProtectedRoutes from './utils/ProtectedRoutes'
 import PublicRoutes from './utils/PublicRoutes'
+import EmailVerification from './pages/Registration/EmailVerification'
+import FileStorage from './pages/FileStorage/FileStorage'
 
 const App = () => {
   return (
@@ -26,6 +28,8 @@ const App = () => {
         </Route>
         <Route element={<ProtectedRoutes />}>
           <Route path="/account" element={<Account />} />
+          <Route path="/verify-email" element={<EmailVerification />} />
+          <Route path="/user-files" element={<FileStorage />} />
         </Route>
       </Routes>
       <Footer />

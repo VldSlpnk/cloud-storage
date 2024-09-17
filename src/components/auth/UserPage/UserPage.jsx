@@ -5,7 +5,7 @@ import {
   signOut,
 } from 'firebase/auth'
 import { useEffect, useState } from 'react'
-import { auth } from '../../../firebase'
+import { auth, db } from '../../../firebase'
 
 import Title from '../../Title/Title'
 import crown from '../../../assets/img/profile/crown.svg'
@@ -15,17 +15,20 @@ import storage from '../../../assets/img/profile/storage.svg'
 import userStatusInfo from './userStatusInfo'
 
 import './UserPage.css'
+import { doc, getDoc, setDoc } from 'firebase/firestore'
+import { Link } from 'react-router-dom'
 
 const user = userStatusInfo.find((user) => user.id === 1)
 
 const UserPage = () => {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
+  const [isEmailVerified, setIsEmailVerified] = useState(false)
 
   const auth = getAuth()
 
   const actionCodeSettings = {
-    url: 'http://google.com',
+    url: 'http://localhost:5173/verify-email', // Страница для завершения подтверждения email
     handleCodeInApp: true,
   }
 
@@ -33,12 +36,36 @@ const UserPage = () => {
     e.preventDefault()
 
     try {
+      const docRef = doc(db, 'users', email)
+      const docSnap = await getDoc(docRef)
+
+      if (docSnap.exists() && docSnap.data().emailSent) {
+        setMessage('Запрос на подтверждение уже был отправлен на этот email.')
+        return
+      }
+
       await sendSignInLinkToEmail(auth, email, actionCodeSettings)
+
+      window.localStorage.setItem('emailForSignIn', email)
+
+      await setDoc(docRef, { emailSent: true }, { merge: true })
+
       setMessage('Подтверждение отправлено на ваш email. Проверьте почту!')
     } catch (error) {
       setMessage(`Ошибка: ${error.message}`)
     }
   }
+  useEffect(() => {
+    const checkEmailVerification = async () => {
+      const user = auth.currentUser
+      if (user) {
+        await user.reload()
+        setIsEmailVerified(user.emailVerified)
+      }
+    }
+
+    checkEmailVerification()
+  }, [])
   return (
     <section className="user-page-main-banner">
       <div className="container">
@@ -68,58 +95,41 @@ const UserPage = () => {
             </div>
           </div>
         </div>
-        <div className="verify-email-form">
-          <h2 className="verify-email-sec">
-            Введите ваш email для подтверждения
-          </h2>
-          <form onSubmit={handleSubmit} className="verify-email-form_form">
-            <div className="input-container">
-              <input
-                className="verify-email-form_input"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Введите email"
-                required
-              />
-              <button type="submit" className="verify-email-form_btn">
-                Отправить подтверждение
-              </button>
-            </div>
-            {message && <p>{message}</p>}
-          </form>
-          {message && <p>{message}</p>}
-        </div>
+        {isEmailVerified ? (
+          <div className="verified-message">
+            <h2>Ваш email успешно подтвержден!</h2>
+            <Link className="files-link" to="/user-files">
+              My files
+            </Link>
+          </div>
+        ) : (
+          <div className="verify-email-form">
+            <h2 className="verify-email-sec">
+              Введите ваш email для подтверждения
+            </h2>
+            <form onSubmit={handleSubmit} className="verify-email-form_form">
+              <div className="input-container">
+                <input
+                  className="verify-email-form_input"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Введите email"
+                  required
+                />
+                <button type="submit" className="verify-email-form_btn">
+                  Отправить подтверждение
+                </button>
+              </div>
+              {<p className="verify-message-error">{message}</p> && (
+                <p className="verify-message">{message}</p>
+              )}
+            </form>
+          </div>
+        )}
       </div>
     </section>
   )
 }
 
 export default UserPage
-
-// const [authUser, setAuthUser] = useState(null)
-// useEffect(() => {
-//   const listen = onAuthStateChanged(auth, (user) => {
-//     if (user) {
-//       setAuthUser(user)
-//     } else setAuthUser(null)
-//   })
-//   return () => {
-//     listen()
-//   }
-// }, [])
-// function userSignOut() {
-//   signOut(auth)
-//     .then(() => console.log('Succsess'))
-//     .catch((e) => console.log(e))
-// }
-// {
-//   /* {authUser ? (
-//   <div>
-//     <p>{`Signed in as ${authUser.email}`}</p>
-//     <button onClick={userSignOut}>Sign out</button>
-//   </div>
-// ) : (
-//   <p>Signed Out</p>
-// )} */
-// }
