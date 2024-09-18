@@ -124,3 +124,6 @@ label {
 legend {
   display: block;
 }
+input[type='file'] {
+  display: none;
+}
