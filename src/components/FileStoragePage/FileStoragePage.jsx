@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
-
 import Title from '../Title/Title'
 import download from '../../assets/img/upload/file-download-fill.svg'
-
 import './FileStoragePage.css'
+import { auth } from '../../firebase'
 
 const FileStoragePage = () => {
   const [files, setFiles] = useState([])
@@ -14,15 +13,25 @@ const FileStoragePage = () => {
   }, [])
 
   const fetchFiles = () => {
-    fetch('http://localhost:5000/files')
-      .then((response) => response.json())
-      .then((data) => setFiles(data))
-      .catch((error) => console.error('Error fetching files:', error))
+    const user = auth.currentUser
+
+    if (user) {
+      fetch('http://localhost:5000/files', {
+        headers: {
+          'user-id': user.uid,
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => setFiles(data))
+        .catch((error) => console.error('Error fetching files:', error))
+    }
   }
 
   const handleFileUpload = (e) => {
     const uploadedFiles = Array.from(e.target.files)
     const formData = new FormData()
+    const user = auth.currentUser
+
     uploadedFiles.forEach((file) => {
       formData.append('files', file)
     })
@@ -32,10 +41,13 @@ const FileStoragePage = () => {
     fetch('http://localhost:5000/upload', {
       method: 'POST',
       body: formData,
+      headers: {
+        'user-id': user.uid,
+      },
     })
       .then((response) => {
         if (response.ok) {
-          return fetchFiles() // Обновляем список файлов
+          return fetchFiles()
         }
         throw new Error('File upload failed')
       })

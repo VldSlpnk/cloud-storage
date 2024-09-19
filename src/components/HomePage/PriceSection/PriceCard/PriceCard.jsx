@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './PriceCard.css'
 
 const PriceCard = ({ id, price, duration, features, onClick, isSelected }) => {
@@ -26,7 +27,9 @@ const PriceCard = ({ id, price, duration, features, onClick, isSelected }) => {
       {isSelected && (
         <>
           <button className="card-sign-btn">
-            <span>Sign Up</span>
+            <Link to="/account" className="card-sign-btn-text">
+              Sign Up
+            </Link>
           </button>
           <p className="card-money-back">14-day money-back guarantee</p>
         </>
