@@ -30602,7 +30602,7 @@ function ak(t, e, n) {
     or(wg, '4.7.1', 'esm2017')
 })()
 const lk = {
-    apiKey: 'import.meta.env.VITE_FIREBASE_API_KEY',
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
     authDomain: 'cloud-storage-38b29.firebaseapp.com',
     projectId: 'cloud-storage-38b29',
     storageBucket: 'cloud-storage-38b29.appspot.com',
